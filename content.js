@@ -79,35 +79,21 @@ function addTownieButton() {
 	button.id = "open-in-townie-btn";
 	button.textContent = "Open in Townie";
 	button.addEventListener("click", openTownie);
-
-	// Append the button to the body.
-	// You might want to find a more specific, stable element on Val Town's page
-	// if appending to body causes issues or isn't visually ideal.
 	document.body.appendChild(button);
 	console.log("Townie button added/ensured on page.");
 }
 
-// --- Main logic to add button and observe DOM changes ---
-
-// 1. Add the button initially
 addTownieButton();
 
-// 2. Set up a MutationObserver to re-add the button if it's removed
 const observer = new MutationObserver((mutationsList, observerInstance) => {
-	// We're looking for changes that might have removed our button.
-	// A simple check is to see if the button is still in the document.
 	if (!document.getElementById("open-in-townie-btn")) {
 		console.log("Townie button was removed from DOM, re-adding.");
 		addTownieButton();
 	}
 });
 
-// Start observing the document body for configured mutations
-// subtree: true is important to catch changes deep within the body.
 observer.observe(document.body, { childList: true, subtree: true });
 
-// Optional: It's good practice to disconnect the observer when the page is unloaded,
-// though for content scripts, this is often handled automatically.
-// window.addEventListener('beforeunload', () => {
-//   observer.disconnect();
-// });
+window.addEventListener("beforeunload", () => {
+	observer.disconnect();
+});
