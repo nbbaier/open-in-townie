@@ -1,6 +1,6 @@
 # Val Town Townie Opener
 
-A browser extension that adds a button to Val Town 'x' pages to open them in Townie.
+A browser extension that adds a button to Val Town val pages to open them in Townie.
 
 ## How it Works
 
