@@ -4,7 +4,7 @@ A browser extension that allows you to open Val Town vals in Townie by clicking 
 
 ## How it Works
 
-When you are viewing a val on a Val Town page with a URL like `https://www.val.town/x/{username}/{valname}        `:
+When you are viewing a val on a Val Town page with a URL like `https://www.val.town/x/{username}/{valname}`:
 
 1. This extension adds a service worker that detects you are on such a page.
 2. When you click the extension button in your browser toolbar:
