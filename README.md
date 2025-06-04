@@ -1,16 +1,15 @@
-# Val Town Townie Opener
+# Open in Townie
 
-A browser extension that adds a button to Val Town val pages to open them in Townie.
+A browser extension that allows you to open Val Town vals in Townie by clicking the extension button.
 
 ## How it Works
 
-When you are viewing a val on a Val Town page with a URL like `https://www.val.town/x/username/valname`:
+When you are viewing a val on a Val Town page with a URL like `https://www.val.town/x/{username}/{valname}        `:
 
-1. This extension detects you are on such a page.
-2. It injects an "Open in Townie" button onto the page.
-3. When you click this button:
+1. This extension adds a service worker that detects you are on such a page.
+2. When you click the extension button in your browser toolbar:
    -  The extension extracts the `username` and `valname` from the URL.
-   -  It calls the Val Town API (`https://api.val.town/v2/alias/vals/username/valname`) to get the unique ID of the val.
+      -  It calls the Val Town API (`https://api.val.town/v2/alias/vals/{username}/{valname}`) to get the unique ID of the val.
    -  It then redirects your browser to `https://townie.val.run/chat/ID`, opening the val in the Townie application.
 
 ## Installation (for Chrome/Chromium-based browsers)
@@ -37,12 +36,3 @@ When you are viewing a val on a Val Town page with a URL like `https://www.val.t
    -  Click "Select Folder".
 
 5. The "Val Town Townie Opener" extension should now be installed and active. You'll see its icon (if applicable) and it will function on Val Town pages.
-
-## Permissions Used
-
-This extension requests the following permissions:
-
--  `activeTab`: This permission is used to allow the extension to interact with the currently active Val Town page. Specifically, it's needed to:
-   -  Add the "Open in Townie" button to the page.
-   -  Access the page's URL to extract the username and val name.
--  `host_permissions` for `https://api.val.town/*`: This permission is required to allow the extension to make requests to the Val Town API. This is essential for fetching the val's ID, which is needed to construct the Townie URL.

@@ -1,17 +1,13 @@
 {
+	"name": "Open in Townie",
+	"action": {},
 	"manifest_version": 3,
-	"name": "Val Town Townie Opener",
-	"version": "1.0",
-	"description": "Adds a button to Val Town 'x' pages to open them in Townie.",
-	"permissions": ["activeTab"],
-	"host_permissions": ["https://api.val.town/*"],
-	"content_scripts": [
-		{
-			"matches": ["https://www.val.town/x/*"],
-			"js": ["content.js"],
-			"css": ["styles.css"]
-		}
-	],
+	"version": "0.1",
+	"description": "Open Val Town vals in Townie by clicking the extension button.",
+	"permissions": ["activeTab", "scripting"],
+	"background": {
+		"service_worker": "service-worker.js"
+	},
 	"icons": {
 		"16": "icons/icon16.png",
 		"48": "icons/icon48.png",
